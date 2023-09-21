@@ -1,0 +1,45 @@
+package.json is a configuration for json
+
+create-react-app uses webpack behind the scenes
+
+Dev dependency vs normal dependency - dev dependencies are generally required during the development phase ans nomal dependencies are used in production also
+npm install -D parcel - D means install parcel as a dev dependency
+
+package-lock.json - keeps the track of exact version of package which is being installed
+
+node_modules contain all the code of all the dependenciesin our system, node_modules is very heavy.
+node_modules is not pushed to production.
+if we've package.json and package-lock.json, then node_modules can be recreated/ regenerated using npm i
+
+
+Transitive dependency- for eg. - we installed parcel which in turn required other packages and then which in turn required other packages
+thats those node_modules are installed.
+
+npx means executing a package . for - npx pacel index.html means parcel is executed
+
+/////////////////////////////////////
+using CDN is not a great way to bring react to our app 
+    1. as it will make network call to from unpkg.com
+    2. today we are using react@18, if another version comes then we've to keep that in the url.
+
+so its better to have react in package.json from where we can manage it.
+
+import React from "react" - it means fetching react from node_modules
+
+
+what is Parcel doing -
+    1. creating dev build
+    2. local server
+    3. hmr - hot module replacement -> automatically refresh on save
+    4. parser uses file watching algorithm which is written in C++
+    5. giving faster builds because of caching - .parcel-cache
+    6. image optimizations
+    7. minification
+    8. bundling during prod build
+    9. compressing
+    10. consistent hashing
+    11. code splitting
+    12. differential blunding
+    13. better error handling/ suggestions
+    14. https
+    15. different prod and dev build
