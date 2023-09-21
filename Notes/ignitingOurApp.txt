@@ -43,3 +43,11 @@ what is Parcel doing -
     13. better error handling/ suggestions
     14. https
     15. different prod and dev build
+
+here we are using npx parcel index.html to start our project in.Now, instead of this in package.json scripts are added to start and build projects in dev and prod env.
+"scripts": {
+    "start": "parcel index.js",
+    "build": "parcel build index.html"
+  },
+  So now we can use npm run start/ npm start to start the project and npm run build to build the project.
+  npm run start is equivalent to npm start and it will start our project because we've confihured that in the scripts of package.json.
