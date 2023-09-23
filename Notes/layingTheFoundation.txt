@@ -1,0 +1,6 @@
+JSX react
+
+React can also be built without JSX. JSX is not a part of react.But when we use JSX it makes code developer friendly.
+JSX is a syntax where we merge both HTML and Javascript together. Jsx is not html inside js. It is HTML-like syntax
+
+const jsxHeading = <h1>Namaste React </h1>
