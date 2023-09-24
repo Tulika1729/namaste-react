@@ -1,0 +1,40 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    position: sticky;
+    .logo{
+        width: 200px;
+    }
+}
+.nav-bar > ul{
+    display: flex;
+    font-size:24px;
+    list-style-type: none;
+}
+.nav-bar > ul > li{
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+.body{
+    .res-container{
+        display: flex;
+        flex-wrap: wrap;
+        .res-card{
+            border: 1px solid transparent;
+            height: 440px;
+            width: 200px;
+            padding: 6px;
+            margin: 6px;
+            .res-logo{
+                width:100%
+            }
+        }
+        .res-card:hover{
+            background: #e1e1e1;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    }
+}
