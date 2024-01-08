@@ -1,53 +1,57 @@
-package.json is a configuration for json
+# Understanding package.json in a React App
 
-create-react-app uses webpack behind the scenes
+**package.json** is a configuration file for JSON.
 
-Dev dependency vs normal dependency - dev dependencies are generally required during the development phase ans nomal dependencies are used in production also
-npm install -D parcel - D means install parcel as a dev dependency
+**create-react-app** uses **webpack** behind the scenes.
 
-package-lock.json - keeps the track of exact version of package which is being installed
+- **Dev dependency vs normal dependency:** Dev dependencies are generally required during the development phase, and normal dependencies are used in production. To install a dev dependency, use the command: `npm install -D parcel` (where `-D` means install parcel as a dev dependency).
 
-node_modules contain all the code of all the dependenciesin our system, node_modules is very heavy.
-node_modules is not pushed to production.
-if we've package.json and package-lock.json, then node_modules can be recreated/ regenerated using npm i
+- **package-lock.json:** This file keeps track of the exact version of packages being installed.
 
+- **node_modules:** Contains all the code of dependencies. It's not pushed to production. If you have package.json and package-lock.json, node_modules can be recreated/regenerated using `npm i`.
 
-Transitive dependency- for eg. - we installed parcel which in turn required other packages and then which in turn required other packages
-thats those node_modules are installed.
+- **Transitive dependency:** Installing a package (e.g., parcel) may require other packages, leading to a cascade of installations in the node_modules directory.
 
-npx means executing a package . for - npx pacel index.html means parcel is executed
+- **npx:** Executes a package. For example, `npx parcel index.html` means parcel is executed.
 
-/////////////////////////////////////
-using CDN is not a great way to bring react to our app 
-    1. as it will make network call to from unpkg.com
-    2. today we are using react@18, if another version comes then we've to keep that in the url.
+---
 
-so its better to have react in package.json from where we can manage it.
+## Using CDN vs Managing Dependencies in package.json
 
-import React from "react" - it means fetching react from node_modules
+Using CDN for React is not recommended for the following reasons:
 
+1. It makes network calls to unpkg.com.
+2. Version management becomes an issue.
 
-what is Parcel doing -
-    1. creating dev build
-    2. local server
-    3. hmr - hot module replacement -> automatically refresh on save
-    4. parser uses file watching algorithm which is written in C++
-    5. giving faster builds because of caching - .parcel-cache
-    6. image optimizations
-    7. minification
-    8. bundling during prod build
-    9. compressing
-    10. consistent hashing
-    11. code splitting
-    12. differential blunding
-    13. better error handling/ suggestions
-    14. https
-    15. different prod and dev build
+It's better to have React in package.json for better control.
 
-here we are using npx parcel index.html to start our project in.Now, instead of this in package.json scripts are added to start and build projects in dev and prod env.
+Example import statement: `import React from "react"`.
+
+---
+
+## What Parcel Does
+
+Parcel performs various tasks, including:
+
+1. Creating dev build.
+2. Setting up a local server.
+3. HMR (Hot Module Replacement) for automatic refresh on save.
+4. Using a file-watching algorithm written in C++ for efficient parsing.
+5. Faster builds due to caching in `.parcel-cache`.
+6. Image optimizations, minification, bundling during prod build, and compression.
+7. Consistent hashing, code splitting, and differential bundling.
+8. Better error handling and suggestions.
+9. Support for HTTPS.
+10. Different configurations for prod and dev builds.
+
+---
+
+## Running the Project with Parcel
+
+To start and build the project using Parcel, scripts are added to package.json:
+
+```json
 "scripts": {
-    "start": "parcel index.js",
-    "build": "parcel build index.html"
-  },
-  So now we can use npm run start/ npm start to start the project and npm run build to build the project.
-  npm run start is equivalent to npm start and it will start our project because we've confihured that in the scripts of package.json.
+  "start": "parcel index.js",
+  "build": "parcel build index.html"
+}
