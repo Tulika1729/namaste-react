@@ -2,7 +2,6 @@ import { CDN_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
     const {resData} = props;
-    console.log("name:",resData?.data?.name != null ? resData.data : "");
     const { 
         name,
         avgRating = 0,

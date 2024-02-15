@@ -42,9 +42,17 @@
             cursor: pointer;
         }
     }
-    .filter-btn{
-        margin: 10px;
-        cursor: pointer;
+    .search{
+        display: flex;
+        .search-btn{
+            margin: 10px 10px 10px 0px;
+            
+        }
+        .filter-btn{
+            cursor: pointer;
+            margin: 10px;
+        }
+
     }
 }
 .shimmer-container{
